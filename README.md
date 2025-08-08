@@ -21,6 +21,22 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Running with Docker Compose
+
+This repository defines multiple services in `docker-compose.yml` using service profiles. To start the development setup, run:
+
+```bash
+docker compose --profile dev up --build
+```
+
+This command builds the images and starts the development frontend together with the mock backend. For a production build, use the `prod` profile:
+
+```bash
+docker compose --profile prod up --build
+```
+
+Stop the containers with `docker compose down`.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -35,5 +51,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
 
