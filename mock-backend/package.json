@@ -1,0 +1,9 @@
+{
+  "name": "mock-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

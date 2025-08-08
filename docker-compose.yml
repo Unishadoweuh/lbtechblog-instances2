@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: .
+    environment:
+      NODE_ENV: production
+      BACKEND_URL: http://mock-backend:3001
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mock-backend
+    profiles:
+      - prod
+
+  frontend-dev:
+    build: .
+    command: npm run dev
+    environment:
+      NODE_ENV: development
+      BACKEND_URL: http://mock-backend:3001
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mock-backend
+    profiles:
+      - dev
+
+  mock-backend:
+    build: ./mock-backend
+    environment:
+      PORT: 3001
+    ports:
+      - "3001:3001"
+    profiles:
+      - dev
+      - prod
